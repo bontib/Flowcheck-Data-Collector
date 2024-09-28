@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
+import { FileuploadComponent } from "../../features/fileupload/fileupload.component";
 import { ToolbarComponent } from '../../shared/components/toolbar/toolbar.component';
-import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'check-home',
   standalone: true,
   imports: [
     ToolbarComponent,
-    MatButtonModule
-  ],
+    FileuploadComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
