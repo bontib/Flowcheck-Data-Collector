@@ -14,20 +14,14 @@ export class FileuploadComponent {
   @Input()
   buttonText: string = '';
   @Output()
-  outEvent: EventEmitter<any> = new EventEmitter();
+  outEvent: EventEmitter<Blob> = new EventEmitter();
 
   onFileSelected() {
     const inputNode: any = document.querySelector('#file');
 
     if (typeof (FileReader) !== 'undefined') {
       const reader = new FileReader();
-
-      reader.onload = (e: any) => {
-        var srcResult = e.target.result;
-        this.outEvent.emit(srcResult);
-      };
-
-      reader.readAsArrayBuffer(inputNode.files[0]);
+      this.outEvent.emit(inputNode.files[0] as Blob)
     }
   }
 }
