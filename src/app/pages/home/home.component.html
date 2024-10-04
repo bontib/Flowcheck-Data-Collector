@@ -3,7 +3,19 @@
 </header>
 <main class="center">
     <div class="spacer"></div>
-    <div class="button-container">
-        <button mat-flat-button>Voeg bon toe</button>
-    </div>
+    @switch (pageState()) {
+        @case (states.default) {
+            <div class="button-container">
+                <check-fileupload (outEvent)="setSrcFoto($event)" buttonText="Voeg bon toe"/>
+            </div>
+        }
+        @case (states.foto_edit) {
+            <div class="img-container">
+                <img [src]="srcFoto()"/>
+            </div>
+            <div class="button-container">
+                <button mat-flat-button>Continue</button>
+            </div>
+        }
+    }
 </main>
